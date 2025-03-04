@@ -17,6 +17,7 @@ jobs:
         arduino-boards-fqbn:
           - arduino:avr:uno
           - arduino:avr:mega
+          - esp32:esp32:esp32
 
       # Do not cancel all jobs / architectures if one job fails
       fail-fast: false
@@ -29,4 +30,5 @@ jobs:
         uses: ArminJo/arduino-test-compile@v3
         with:
           required-libraries: AccelStepper,Servo,DFRobotDFPlayerMini,U8g2,EncButton,NmraDcc,WiFi
+          platform-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
           arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
